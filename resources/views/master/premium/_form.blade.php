@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="card-header with-border pl-0 pb-1">
-        <span class="col-form-label text-bold">PREMIUM</span>
+        <span class="col-form-label text-bold">TUNJANGAN PREMIUM</span>
     </div>
     <br> 
     <div class="form-group row">
@@ -23,7 +23,7 @@
         </div> 
     </div>
     <div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Besaran Uang</label>
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Besaran Uang <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -40,7 +40,7 @@
     </div> 
 
     <div class="form-group row">
-        <label class="col-12 col-md-4 col-xs-4 col-form-label">Status</label> 
+        <label class="col-12 col-md-4 col-xs-4 col-form-label">Status <span class="text-danger">*</span></label> 
         <div class="col-12 col-md-5 col-lg-5">
             <select name="status" class="form-control select2 @error('status') is-invalid @enderror">
                 <option value="">Pilih</option>

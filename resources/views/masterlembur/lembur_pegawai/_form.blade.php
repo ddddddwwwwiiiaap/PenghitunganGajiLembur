@@ -32,7 +32,7 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Mulai Lembur <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
-            <input type="time" id="mulai_lembur" name="mulai_lembur" class="form-control @error('mulai_lembur') is-invalid @enderror" value="{{ old('mulai_lembur', $lembur_pegawai->mulai_lembur ?? '') }}">
+            <input type="time" id="mulai_lembur" name="mulai_lembur" class="form-control @error('mulai_lembur') is-invalid @enderror" value="{{ old('mulai_lembur', $lembur_pegawai->mulai_lembur ?? '') }}" onchange="calculateDuration()">
             @error('mulai_lembur')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('mulai_lembur') }}</strong>
@@ -44,7 +44,7 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Selesai Lembur <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
-            <input type="time" id="selesai_lembur" name="selesai_lembur" class="form-control @error('selesai_lembur') is-invalid @enderror" value="{{ old('selesai_lembur', $lembur_pegawai->selesai_lembur ?? '') }}">
+            <input type="time" id="selesai_lembur" name="selesai_lembur" class="form-control @error('selesai_lembur') is-invalid @enderror" value="{{ old('selesai_lembur', $lembur_pegawai->selesai_lembur ?? '') }}" onchange="calculateDuration()">
             @error('selesai_lembur')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('selesai_lembur') }}</strong>
@@ -56,7 +56,7 @@
     <div class="form-group row">
         <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Jumlah Jam <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
-            <input type="text" name="jumlah_jam" class="form-control @error('jumlah_jam') is-invalid @enderror" value="{{ old('jumlah_jam', $lembur_pegawai->jumlah_jam ?? '') }}">
+            <input type="text" id="jumlah_jam" name="jumlah_jam" class="form-control @error('jumlah_jam') is-invalid @enderror" value="{{ old('jumlah_jam', $lembur_pegawai->jumlah_jam ?? '') }}" readonly>
             @error('jumlah_jam')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('jumlah_jam') }}</strong>

@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+// digunakan untuk mengarahkan namespace sesuai dengan folder yang ada di dalam folder Controller
+// namespace adalah sebuah cara untuk mengelompokkan class atau interface yang memiliki fungsi yang sama
+namespace App\Http\Controllers\Auth; 
 
+// use adalah perintah untuk mengimport namespace atau class lain
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -13,22 +16,21 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    use AuthenticatesUsers;
-
+    use AuthenticatesUsers; // kenapa harus use AuthenticatesUsers? karena kita akan menggunakan trait AuthenticatesUsers yang sudah disediakan oleh Laravel
 
     protected $redirectTo = RouteServiceProvider::HOME;
-
-    public function __construct()
+    
+    public function __construct() // method ini digunakan untuk membatasi hak akses, jika user sudah login maka tidak bisa mengakses halaman login lagi
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout'); // digunakan untuk user yang sudah login agar tidak bisa mengakses halaman login
     }
 
-    public function showLoginForm()
+    public function showLoginForm() // method ini digunakan untuk menampilkan form login
     {
         return view('auth.login');
     }
 
-    public function login(Request $request)
+    public function login(Request $request) // request adalah parameter yang digunakan untuk mengambil data yang dikirim oleh form
     {
         $msg = [
             'username.*' => 'Username tidak boleh kosong !',
@@ -54,10 +56,10 @@ class LoginController extends Controller
             'alert-type' => 'success',
             'message' => 'Selamat datang ' . ucwords(Auth::user()->name) . ' di Sistem Informasi Pendataan dan Gaji Karyawan'
         ];
-        return redirect()->route('home')->with($message);
+        return redirect()->route('home')->with($message); 
     }
 
-    public function username()
+    public function username() // method ini digunakan untuk mengubah field login dari email menjadi username, karena default login di Laravel adalah email
     {
         return 'username';
     }

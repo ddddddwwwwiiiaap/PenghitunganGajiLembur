@@ -8,10 +8,10 @@ use App\Models\Master\JobGrade;
 
 class JobGradeController extends Controller
 {
-    public function index()
+    public function index() // method index untuk menampilkan data jobgrade, kenapa index? karena index adalah method yang pertama kali dijalankan ketika membuka halaman
     {
-        $data['jobgrade'] = JobGrade::all();
-        $data['count'] = JobGrade::count();
+        $data['jobgrade'] = JobGrade::all(); // digunakan untuk mengambil semua data dari tabel jobgrade
+        $data['count'] = JobGrade::count(); // digunakan untuk menghitung jumlah data jobgrade
         return view('master.jobgrade.index', $data);
     }
 
@@ -22,8 +22,8 @@ class JobGradeController extends Controller
 
     public function store(Request $request)
     {
-        $request->merge([
-            'salary_jobgrade' => preg_replace('/\D/', '', $request->salary_jobgrade),
+        $request->merge([ // merge digunakan untuk menggabungkan data yang sudah ada dengan data yang baru
+            'salary_jobgrade' => preg_replace('/\D/', '', $request->salary_jobgrade), // preg_replace digunakan untuk menghapus karakter selain angka
         ]);
 
         $request->validate([

@@ -15,7 +15,7 @@ class PremiumController extends Controller
         return view('master.premium.index', $data);
     }
 
-    public function create()
+    public function create() // method create untuk menampilkan form create jobgrade
     {
         $data['title'] = "Buat premium";
         return view('master.premium.create', $data);

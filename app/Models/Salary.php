@@ -19,11 +19,6 @@ class Salary extends Model
         return $this->belongsTo(Staff::class, 'staff_id');
     }
 
-    public function lemburPegawai()
-    {
-        return $this->belongsTo(LemburPegawai::class, 'lembur_pegawai_id');
-    }
-
     public function updateStatus($id, $status)
     {
         //update status gaji

@@ -16,7 +16,7 @@ class StaffController extends Controller
     public function index()
     {
         $data['staff'] = Staff::all();
-        $data['count'] = Staff::count();
+        $data['count'] = Staff::count(); // data count digunakan untuk menampilkan jumlah data staff, variabel count dari mana? dari data['count'] yang diambil dari Staff::count()
         return view('master.staff.index', $data);
     }
 
@@ -127,25 +127,6 @@ class StaffController extends Controller
             ];
             return redirect()->route('master.staff.index')->with($message);
         }*/
-
-        if ($request->has('makeUserAccount')) {
-            $msg = [
-                'username.min' => 'Username harus terdiri dari minimal 6 karakter.',
-                'username.unique' => 'Username sudah digunakan.'
-            ];
-            $request->validate([
-                'username' => 'required|string|min:6|max:255|unique:users',
-                'role_id' => 'required|integer',
-            ], $msg);
-
-            $user = Users::create([
-                'name' => $request->name,
-                'username' => $request->username,
-                'password' => bcrypt($request->username),
-                'role_id' => $request->role_id
-            ]);
-            $request->request->add(['users_id' => $user->id]);
-        }
 
         $staff->update($request->all());
 

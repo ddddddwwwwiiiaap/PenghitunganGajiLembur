@@ -54,5 +54,29 @@
             autoClose: true,
         });
     });
+
+    function calculateDuration() {
+        const startTime = document.getElementById('mulai_lembur').value;
+        const endTime = document.getElementById('selesai_lembur').value;
+
+        if (startTime && endTime) {
+            const [startHours, startMinutes] = startTime.split(':').map(Number);
+            const [endHours, endMinutes] = endTime.split(':').map(Number);
+
+            let startDateTime = new Date(0, 0, 0, startHours, startMinutes);
+            let endDateTime = new Date(0, 0, 0, endHours, endMinutes);
+
+            // Jika waktu selesai lebih kecil dari waktu mulai, tambahkan 1 hari ke waktu selesai
+            if (endDateTime < startDateTime) {
+                endDateTime.setDate(endDateTime.getDate() + 1);
+            }
+
+            const durationHours = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
+            const durationText = `${Math.round(durationHours)}`;
+            document.getElementById('jumlah_jam').value = durationText;
+        } else {
+            document.getElementById('jumlah_jam').value = '';
+        }
+    }
 </script>
 @endsection

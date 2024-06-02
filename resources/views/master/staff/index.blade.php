@@ -68,7 +68,7 @@
                                     </th>
                                     <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">
                                         <center>
-                                            Upah Pokok
+                                            Upah Perbulan
                                         </center>
                                     </th>
                                     <th class="sorting" data-sorting_type="asc" data-column_name="no" style="cursor: pointer">

@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes(); // soft delete digunakan untuk menghapus data secara tidak permanen, karena data yang dihapus masih bisa dikembalikan, cara kerjanya dengan menambahkan kolom deleted_at pada tabel yang dihapus
 
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
         });

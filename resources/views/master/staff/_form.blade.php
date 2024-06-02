@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Upah Pokok</label>
+        <label class="col-md-4 col-xs-4 col-form-label justify-flex-end">Upah Pokok <span class="text-danger">*</span></label>
         <div class="col-12 col-md-5 col-lg-5">
             <div class="input-group">
                 <div class="input-group-prepend">
